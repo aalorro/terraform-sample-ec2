@@ -45,7 +45,7 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   security_groups = ["${aws_security_group.allow_http_ssh.name}"]
   key_name = "alorro2020"
-  user_data = "file(user_data.sh)"
+  user_data = "${file("install.sh")}"
 
   tags = {
     Name = "terraform test"
